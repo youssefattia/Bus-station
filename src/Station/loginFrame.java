@@ -16,6 +16,7 @@ public class loginFrame extends javax.swing.JFrame {
      */
     public loginFrame() {
         initComponents();
+        
     }
 
     /**
@@ -28,6 +29,11 @@ public class loginFrame extends javax.swing.JFrame {
     private void initComponents() {
 
         jButton1 = new javax.swing.JButton();
+        buttonGroup1 = new javax.swing.ButtonGroup();
+        vehicleType = new javax.swing.ButtonGroup();
+        tripType = new javax.swing.ButtonGroup();
+        ticketType = new javax.swing.ButtonGroup();
+        ticketClass = new javax.swing.ButtonGroup();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
@@ -39,17 +45,17 @@ public class loginFrame extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jRadioButton3 = new javax.swing.JRadioButton();
+        busbtn = new javax.swing.JRadioButton();
+        minibusbtn = new javax.swing.JRadioButton();
+        limousinebtn = new javax.swing.JRadioButton();
         jLabel7 = new javax.swing.JLabel();
-        jRadioButton4 = new javax.swing.JRadioButton();
-        jRadioButton5 = new javax.swing.JRadioButton();
+        internaltripbtn = new javax.swing.JRadioButton();
+        externaltripbtn = new javax.swing.JRadioButton();
         jLabel8 = new javax.swing.JLabel();
-        jRadioButton6 = new javax.swing.JRadioButton();
-        jRadioButton7 = new javax.swing.JRadioButton();
+        onewaybtn = new javax.swing.JRadioButton();
+        roundbtn = new javax.swing.JRadioButton();
         jLabel9 = new javax.swing.JLabel();
-        jRadioButton8 = new javax.swing.JRadioButton();
+        nonstopbtn = new javax.swing.JRadioButton();
         jRadioButton9 = new javax.swing.JRadioButton();
         jRadioButton10 = new javax.swing.JRadioButton();
         jButton3 = new javax.swing.JButton();
@@ -97,67 +103,82 @@ public class loginFrame extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel6.setText("Please select vehicle type :");
 
-        jRadioButton1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jRadioButton1.setText("Bus");
-        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
+        vehicleType.add(busbtn);
+        busbtn.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        busbtn.setText("Bus");
+        busbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton1ActionPerformed(evt);
+                busbtnActionPerformed(evt);
             }
         });
 
-        jRadioButton2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jRadioButton2.setText("Minibus");
-        jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
+        vehicleType.add(minibusbtn);
+        minibusbtn.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        minibusbtn.setText("Minibus");
+        minibusbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton2ActionPerformed(evt);
+                minibusbtnActionPerformed(evt);
             }
         });
 
-        jRadioButton3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jRadioButton3.setText("Limousine");
-        jRadioButton3.addActionListener(new java.awt.event.ActionListener() {
+        vehicleType.add(limousinebtn);
+        limousinebtn.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        limousinebtn.setText("Limousine");
+        limousinebtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton3ActionPerformed(evt);
+                limousinebtnActionPerformed(evt);
             }
         });
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel7.setText("Please select trip type :");
 
-        jRadioButton4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jRadioButton4.setText("Internal");
-        jRadioButton4.addActionListener(new java.awt.event.ActionListener() {
+        tripType.add(internaltripbtn);
+        internaltripbtn.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        internaltripbtn.setText("Internal");
+        internaltripbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton4ActionPerformed(evt);
+                internaltripbtnActionPerformed(evt);
             }
         });
 
-        jRadioButton5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jRadioButton5.setText("External");
-        jRadioButton5.addActionListener(new java.awt.event.ActionListener() {
+        tripType.add(externaltripbtn);
+        externaltripbtn.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        externaltripbtn.setText("External");
+        externaltripbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton5ActionPerformed(evt);
+                externaltripbtnActionPerformed(evt);
             }
         });
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel8.setText("Please select ticket type :");
 
-        jRadioButton6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jRadioButton6.setText("One-way");
+        ticketType.add(onewaybtn);
+        onewaybtn.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        onewaybtn.setText("One-way");
 
-        jRadioButton7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jRadioButton7.setText("Round");
+        ticketType.add(roundbtn);
+        roundbtn.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        roundbtn.setText("Round");
+        roundbtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                roundbtnActionPerformed(evt);
+            }
+        });
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel9.setText("Please select ticket Class :");
+        jLabel9.setText("Please select ticket class :");
 
-        jRadioButton8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jRadioButton8.setText("Non-stop");
+        ticketClass.add(nonstopbtn);
+        nonstopbtn.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        nonstopbtn.setText("Non-stop");
 
+        ticketClass.add(jRadioButton9);
         jRadioButton9.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jRadioButton9.setText("One-stop");
 
+        ticketClass.add(jRadioButton10);
         jRadioButton10.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jRadioButton10.setText("Many-stops");
 
@@ -176,7 +197,7 @@ public class loginFrame extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(82, 82, 82)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 628, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -205,11 +226,11 @@ public class loginFrame extends javax.swing.JFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jRadioButton1)
+                                        .addComponent(busbtn)
                                         .addGap(18, 18, 18)
-                                        .addComponent(jRadioButton2)
+                                        .addComponent(minibusbtn)
                                         .addGap(28, 28, 28)
-                                        .addComponent(jRadioButton3)))
+                                        .addComponent(limousinebtn)))
                                 .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(86, 86, 86)
@@ -220,31 +241,31 @@ public class loginFrame extends javax.swing.JFrame {
                                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(18, 18, 18)
-                                .addComponent(jRadioButton4)
-                                .addGap(49, 49, 49)
-                                .addComponent(jRadioButton5))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(10, 10, 10)
-                                .addComponent(jLabel8))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addComponent(jRadioButton6)
+                                .addComponent(onewaybtn)
                                 .addGap(26, 26, 26)
-                                .addComponent(jRadioButton7))
+                                .addComponent(roundbtn))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(10, 10, 10)
                                 .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(18, 18, 18)
-                                .addComponent(jRadioButton8)
+                                .addComponent(nonstopbtn)
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jRadioButton9)
                                         .addGap(18, 18, 18)
-                                        .addComponent(jRadioButton10)))))
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                                        .addComponent(jRadioButton10))))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                    .addGap(18, 18, 18)
+                                    .addComponent(internaltripbtn)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(externaltripbtn))
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                    .addGap(10, 10, 10)
+                                    .addComponent(jLabel8)))))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -253,7 +274,7 @@ public class loginFrame extends javax.swing.JFrame {
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, 32, Short.MAX_VALUE)
+                        .addGap(32, 32, 32)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -273,29 +294,29 @@ public class loginFrame extends javax.swing.JFrame {
                                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jRadioButton1)
-                                    .addComponent(jRadioButton2)
-                                    .addComponent(jRadioButton3))
+                                    .addComponent(busbtn)
+                                    .addComponent(minibusbtn)
+                                    .addComponent(limousinebtn))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jRadioButton4)
-                                    .addComponent(jRadioButton5))
+                                    .addComponent(internaltripbtn)
+                                    .addComponent(externaltripbtn))
                                 .addGap(18, 18, 18)
                                 .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jRadioButton6)
-                                    .addComponent(jRadioButton7))
+                                    .addComponent(onewaybtn)
+                                    .addComponent(roundbtn))
                                 .addGap(18, 18, 18)
                                 .addComponent(jLabel9)
-                                .addGap(26, 26, 26)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jRadioButton8)
+                                    .addComponent(nonstopbtn)
                                     .addComponent(jRadioButton9)
                                     .addComponent(jRadioButton10))
-                                .addGap(40, 40, 40)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
                                 .addComponent(jButton3)))
                         .addGap(44, 44, 44))
                     .addGroup(layout.createSequentialGroup()
@@ -315,29 +336,33 @@ public class loginFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jPasswordField1ActionPerformed
 
-    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
+    private void busbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_busbtnActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton1ActionPerformed
+    }//GEN-LAST:event_busbtnActionPerformed
 
-    private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
+    private void minibusbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_minibusbtnActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton2ActionPerformed
+    }//GEN-LAST:event_minibusbtnActionPerformed
 
-    private void jRadioButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton3ActionPerformed
+    private void limousinebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_limousinebtnActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton3ActionPerformed
+    }//GEN-LAST:event_limousinebtnActionPerformed
 
-    private void jRadioButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton4ActionPerformed
+    private void internaltripbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_internaltripbtnActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton4ActionPerformed
+    }//GEN-LAST:event_internaltripbtnActionPerformed
 
-    private void jRadioButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton5ActionPerformed
+    private void externaltripbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_externaltripbtnActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton5ActionPerformed
+    }//GEN-LAST:event_externaltripbtnActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         new Customers().setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void roundbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_roundbtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_roundbtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -375,6 +400,10 @@ public class loginFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JRadioButton busbtn;
+    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JRadioButton externaltripbtn;
+    private javax.swing.JRadioButton internaltripbtn;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -388,18 +417,19 @@ public class loginFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JRadioButton jRadioButton10;
-    private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JRadioButton jRadioButton3;
-    private javax.swing.JRadioButton jRadioButton4;
-    private javax.swing.JRadioButton jRadioButton5;
-    private javax.swing.JRadioButton jRadioButton6;
-    private javax.swing.JRadioButton jRadioButton7;
-    private javax.swing.JRadioButton jRadioButton8;
     private javax.swing.JRadioButton jRadioButton9;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTextPane jTextPane1;
+    private javax.swing.JRadioButton limousinebtn;
+    private javax.swing.JRadioButton minibusbtn;
+    private javax.swing.JRadioButton nonstopbtn;
+    private javax.swing.JRadioButton onewaybtn;
+    private javax.swing.JRadioButton roundbtn;
+    private javax.swing.ButtonGroup ticketClass;
+    private javax.swing.ButtonGroup ticketType;
+    private javax.swing.ButtonGroup tripType;
+    private javax.swing.ButtonGroup vehicleType;
     // End of variables declaration//GEN-END:variables
 }
