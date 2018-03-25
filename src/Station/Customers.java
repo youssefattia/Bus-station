@@ -10,6 +10,8 @@ package Station;
  * @author HP
  */
 public class Customers extends javax.swing.JFrame {
+     double pr = loginFrame.price;
+     String tripPrice = String.valueOf(pr) , name , from , to;
 
     /**
      * Creates new form Customers
@@ -73,6 +75,11 @@ public class Customers extends javax.swing.JFrame {
         jLabel7.setText("Please enter your full name :");
 
         customersokbut.setText("OK");
+        customersokbut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                customersokbutActionPerformed(evt);
+            }
+        });
 
         customerspricefield.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -152,8 +159,20 @@ public class Customers extends javax.swing.JFrame {
     }//GEN-LAST:event_priceActionPerformed
 
     private void customerspricefieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_customerspricefieldActionPerformed
-        
+       
     }//GEN-LAST:event_customerspricefieldActionPerformed
+
+    private void customersokbutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_customersokbutActionPerformed
+        name = customersnamefield.getText();
+        from = customersfromfield.getText();
+        to = customerstofield.getText();
+        if(name.length() < 7 || from.length()<3  || to.length() < 3){
+             customerspricefield.setText(" ");
+            System.out.println("ERROR : Please fill in all the required fields correctly with full information");
+        }
+        else
+        customerspricefield.setText(tripPrice + "💲");
+    }//GEN-LAST:event_customersokbutActionPerformed
 
     /**
      * @param args the command line arguments
