@@ -17,21 +17,23 @@ import java.util.*;
  */
 public class loginFrame extends javax.swing.JFrame {
 
-    /**
-     * Creates new form loginFrame
-     */
+    static double price;
     String vt,trt,tkt,tc;
     File f = new File("ticket.txt");
     String info;
 
-    fappend Appender;
-    createfile Creator;
+
+    
+    
+
+    /**
+     * Creates new form loginFrame
+     */
     public loginFrame() {
         initComponents();
-        this.Creator = new createfile();
-        this.Appender = new fappend();
         
     }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -70,8 +72,8 @@ public class loginFrame extends javax.swing.JFrame {
         roundbtn = new javax.swing.JRadioButton();
         jLabel9 = new javax.swing.JLabel();
         nonstopbtn = new javax.swing.JRadioButton();
-        jRadioButton9 = new javax.swing.JRadioButton();
-        manystopsbtn = new javax.swing.JRadioButton();
+        onestopbtn = new javax.swing.JRadioButton();
+        manystopbtn = new javax.swing.JRadioButton();
         jButton3 = new javax.swing.JButton();
 
         jButton1.setText("jButton1");
@@ -192,22 +194,27 @@ public class loginFrame extends javax.swing.JFrame {
         ticketClass.add(nonstopbtn);
         nonstopbtn.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         nonstopbtn.setText("Non-stop");
-
-        ticketClass.add(jRadioButton9);
-        jRadioButton9.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jRadioButton9.setText("One-stop");
-        jRadioButton9.addActionListener(new java.awt.event.ActionListener() {
+        nonstopbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton9ActionPerformed(evt);
+                nonstopbtnActionPerformed(evt);
             }
         });
 
-        ticketClass.add(manystopsbtn);
-        manystopsbtn.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        manystopsbtn.setText("Many-stops");
-        manystopsbtn.addActionListener(new java.awt.event.ActionListener() {
+        ticketClass.add(onestopbtn);
+        onestopbtn.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        onestopbtn.setText("One-stop");
+        onestopbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                manystopsbtnActionPerformed(evt);
+                onestopbtnActionPerformed(evt);
+            }
+        });
+
+        ticketClass.add(manystopbtn);
+        manystopbtn.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        manystopbtn.setText("Many-stops");
+        manystopbtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                manystopbtnActionPerformed(evt);
             }
         });
 
@@ -283,9 +290,9 @@ public class loginFrame extends javax.swing.JFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jRadioButton9)
+                                        .addComponent(onestopbtn)
                                         .addGap(18, 18, 18)
-                                        .addComponent(manystopsbtn))))
+                                        .addComponent(manystopbtn))))
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                     .addGap(18, 18, 18)
@@ -343,8 +350,8 @@ public class loginFrame extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(nonstopbtn)
-                                    .addComponent(jRadioButton9)
-                                    .addComponent(manystopsbtn))
+                                    .addComponent(onestopbtn)
+                                    .addComponent(manystopbtn))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
                                 .addComponent(jButton3)))
                         .addGap(44, 44, 44))
@@ -366,50 +373,68 @@ public class loginFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jPasswordField1ActionPerformed
 
     private void busbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_busbtnActionPerformed
-       vt="bus";     
-
+        vt="bus";
+        price += 10;
+        
     }//GEN-LAST:event_busbtnActionPerformed
 
     private void minibusbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_minibusbtnActionPerformed
-       vt="minibus";        
+        vt="minibus";
+        price += 20;
+        
     }//GEN-LAST:event_minibusbtnActionPerformed
 
     private void limousinebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_limousinebtnActionPerformed
-       vt="limo";
+        vt="limousine";
+        price += 150;
+        
     }//GEN-LAST:event_limousinebtnActionPerformed
 
     private void internaltripbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_internaltripbtnActionPerformed
-       trt="internal";
+        trt="internal";
+        price += 10;
+        
     }//GEN-LAST:event_internaltripbtnActionPerformed
 
     private void externaltripbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_externaltripbtnActionPerformed
         trt="external";
+        price += 50;
+        
     }//GEN-LAST:event_externaltripbtnActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-    info =vt + " " + trt + " " + tc + "\n";   
-        try{
-        Files.write(Paths.get("ticket.txt"),info.getBytes(),StandardOpenOption.APPEND);
-       }
-       catch(IOException e){}
+        info =vt + " " + trt + " " + tkt + " " + tc + "\n";
+        try {
+     Files.write(Paths.get("ticket.txt"), info.getBytes(), StandardOpenOption.APPEND);
+     }catch (IOException e) {
+     }
         new Customers().setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
-
+ 
     private void roundbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_roundbtnActionPerformed
-        tc = "round";
+       tkt="round";
+        price *= 1.8;
+        
     }//GEN-LAST:event_roundbtnActionPerformed
 
     private void onewaybtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_onewaybtnActionPerformed
-        tc = "one-way";
+        tkt="oneway";
     }//GEN-LAST:event_onewaybtnActionPerformed
 
-    private void jRadioButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton9ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton9ActionPerformed
+    private void onestopbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_onestopbtnActionPerformed
+        tc = "onestop";
+        price += 20;
+    }//GEN-LAST:event_onestopbtnActionPerformed
 
-    private void manystopsbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manystopsbtnActionPerformed
-        tc = "many-stops";
-    }//GEN-LAST:event_manystopsbtnActionPerformed
+    private void manystopbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manystopbtnActionPerformed
+        tc = "manystop";
+        price += 10;
+    }//GEN-LAST:event_manystopbtnActionPerformed
+
+    private void nonstopbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nonstopbtnActionPerformed
+        tc = "nonstop";
+        price += 30;
+    }//GEN-LAST:event_nonstopbtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -464,14 +489,14 @@ public class loginFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JRadioButton jRadioButton9;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTextPane jTextPane1;
     private javax.swing.JRadioButton limousinebtn;
-    private javax.swing.JRadioButton manystopsbtn;
+    private javax.swing.JRadioButton manystopbtn;
     private javax.swing.JRadioButton minibusbtn;
     private javax.swing.JRadioButton nonstopbtn;
+    private javax.swing.JRadioButton onestopbtn;
     private javax.swing.JRadioButton onewaybtn;
     private javax.swing.JRadioButton roundbtn;
     private javax.swing.ButtonGroup ticketClass;

@@ -1,2 +1,6 @@
  testtextbusinternalround
 bus internal round
+bus external round onestop
+bus external round onestop
+bus external round onestop
+bus external oneway nonstop
