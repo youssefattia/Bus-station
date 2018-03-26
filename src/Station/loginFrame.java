@@ -4,6 +4,12 @@
  * and open the template in the editor.
  */
 package Station;
+import java.io.*;
+import java.lang.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
+import java.util.*;
 
 /**
  *
@@ -14,8 +20,16 @@ public class loginFrame extends javax.swing.JFrame {
     /**
      * Creates new form loginFrame
      */
+    String vt,trt,tkt,tc;
+    File f = new File("ticket.txt");
+    String info;
+
+    fappend Appender;
+    createfile Creator;
     public loginFrame() {
         initComponents();
+        this.Creator = new createfile();
+        this.Appender = new fappend();
         
     }
 
@@ -57,7 +71,7 @@ public class loginFrame extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         nonstopbtn = new javax.swing.JRadioButton();
         jRadioButton9 = new javax.swing.JRadioButton();
-        jRadioButton10 = new javax.swing.JRadioButton();
+        manystopsbtn = new javax.swing.JRadioButton();
         jButton3 = new javax.swing.JButton();
 
         jButton1.setText("jButton1");
@@ -157,6 +171,11 @@ public class loginFrame extends javax.swing.JFrame {
         ticketType.add(onewaybtn);
         onewaybtn.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         onewaybtn.setText("One-way");
+        onewaybtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                onewaybtnActionPerformed(evt);
+            }
+        });
 
         ticketType.add(roundbtn);
         roundbtn.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -177,10 +196,20 @@ public class loginFrame extends javax.swing.JFrame {
         ticketClass.add(jRadioButton9);
         jRadioButton9.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jRadioButton9.setText("One-stop");
+        jRadioButton9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton9ActionPerformed(evt);
+            }
+        });
 
-        ticketClass.add(jRadioButton10);
-        jRadioButton10.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jRadioButton10.setText("Many-stops");
+        ticketClass.add(manystopsbtn);
+        manystopsbtn.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        manystopsbtn.setText("Many-stops");
+        manystopsbtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                manystopsbtnActionPerformed(evt);
+            }
+        });
 
         jButton3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jButton3.setText("OK");
@@ -256,7 +285,7 @@ public class loginFrame extends javax.swing.JFrame {
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jRadioButton9)
                                         .addGap(18, 18, 18)
-                                        .addComponent(jRadioButton10))))
+                                        .addComponent(manystopsbtn))))
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                     .addGap(18, 18, 18)
@@ -315,7 +344,7 @@ public class loginFrame extends javax.swing.JFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(nonstopbtn)
                                     .addComponent(jRadioButton9)
-                                    .addComponent(jRadioButton10))
+                                    .addComponent(manystopsbtn))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
                                 .addComponent(jButton3)))
                         .addGap(44, 44, 44))
@@ -337,32 +366,50 @@ public class loginFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jPasswordField1ActionPerformed
 
     private void busbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_busbtnActionPerformed
-        // TODO add your handling code here:
+       vt="bus";     
+
     }//GEN-LAST:event_busbtnActionPerformed
 
     private void minibusbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_minibusbtnActionPerformed
-        // TODO add your handling code here:
+       vt="minibus";        
     }//GEN-LAST:event_minibusbtnActionPerformed
 
     private void limousinebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_limousinebtnActionPerformed
-        // TODO add your handling code here:
+       vt="limo";
     }//GEN-LAST:event_limousinebtnActionPerformed
 
     private void internaltripbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_internaltripbtnActionPerformed
-        // TODO add your handling code here:
+       trt="internal";
     }//GEN-LAST:event_internaltripbtnActionPerformed
 
     private void externaltripbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_externaltripbtnActionPerformed
-        // TODO add your handling code here:
+        trt="external";
     }//GEN-LAST:event_externaltripbtnActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    info =vt + " " + trt + " " + tc + "\n";   
+        try{
+        Files.write(Paths.get("ticket.txt"),info.getBytes(),StandardOpenOption.APPEND);
+       }
+       catch(IOException e){}
         new Customers().setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void roundbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_roundbtnActionPerformed
-        // TODO add your handling code here:
+        tc = "round";
     }//GEN-LAST:event_roundbtnActionPerformed
+
+    private void onewaybtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_onewaybtnActionPerformed
+        tc = "one-way";
+    }//GEN-LAST:event_onewaybtnActionPerformed
+
+    private void jRadioButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton9ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButton9ActionPerformed
+
+    private void manystopsbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manystopsbtnActionPerformed
+        tc = "many-stops";
+    }//GEN-LAST:event_manystopsbtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -417,12 +464,12 @@ public class loginFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JRadioButton jRadioButton10;
     private javax.swing.JRadioButton jRadioButton9;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTextPane jTextPane1;
     private javax.swing.JRadioButton limousinebtn;
+    private javax.swing.JRadioButton manystopsbtn;
     private javax.swing.JRadioButton minibusbtn;
     private javax.swing.JRadioButton nonstopbtn;
     private javax.swing.JRadioButton onewaybtn;
